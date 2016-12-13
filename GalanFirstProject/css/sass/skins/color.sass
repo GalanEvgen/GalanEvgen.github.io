@@ -1,0 +1,196 @@
+@import "../bourbon/bourbon"
+
+$color_accent: #ff7600
+$text_color: #cecece
+$main_color: #212121
+$bg_light: #fff
+$bg_bottom: rgba(255, 163, 0, 0.3)
+$bg_bottom_accent: rgba(255, 163, 0, 0.65)
+
+@mixin kerning($kerning)
+	letter-spacing: $kerning + px
+
+.loader_inner
+	background-color: $main_color
+
+body
+	background-color: $bg_light
+	+kerning(1)
+
+.logo_container
+	img
+		border-color: $bg_light
+
+a
+	color: $color_accent
+
+p
+	color: $text_color
+
+.color_element
+	color: $color_accent
+
+.color_bg
+	background-color: $color_accent
+
+.color_border
+	border-color: $color_accent
+
+.main_color_bg
+	background-color: $main_color
+
+.bg_light
+	background-color: $text_color
+	color: $main_color
+
+.bg_dark
+	background-color: $main_color
+	color: $bg_light
+	h2
+		color: $bg_light
+
+.toggle_menu
+	background-color: #000000
+	&:hover
+		background-color: $bg_bottom
+
+.sw-topper
+	background: $bg_light
+
+.sw-bottom
+	background: $bg_light
+
+.sw-footer
+	background: $bg_light
+
+.top_menu
+	background-color: rgba(0,0,0,.8)
+	a
+		color: $bg_light
+		&:hover
+			color: $color_accent
+			background: rgba(255, 255, 255, 0.1)
+			+kerning(2)
+
+.top_text
+	p
+		color: $color_accent
+		+kerning(11)
+	h1
+		color: $bg_light
+		background-color: rgba(255, 163, 0, 0.3)
+		border: 3px solid $bg_light
+		+kerning(4)
+
+h2
+	+kerning(3)
+
+.s_descr
+	+kerning(3)
+	&::after
+		background-color: $color_accent
+
+.main_footer
+	color: $color_accent
+	background-color: #080606
+
+.s_portfolio
+	li
+		+kerning(1)
+		color: #8d8d8d
+	li.active
+		color: $main_color
+		border-bottom: 1px solid $main_color
+
+.portfolio_item
+	img
+		border: 2px solid $bg_light
+	.port_item_container
+		background-color: rgba(0,0,0,.6)
+	h3
+		color: $bg_light
+	a
+		color: $bg_light
+		border: 1px solid $bg_light
+		background-color: $bg_bottom
+		&:hover
+			background-color: $bg_bottom_accent
+			border: 1px solid $color_accent
+
+.port_deskr
+	background-color: rgba(0, 0, 0, 0.48)
+	p,
+	h3
+		color: $bg_light
+	h3
+		color: $bg_light
+		border: 1px solid $bg_light
+		background-color: $bg_bottom_accent
+
+.car_img
+	li
+		color: $text_color
+
+.text-danger
+	color: #red
+
+form
+	input:focus,
+	textarea:focus
+		color: #000000
+		border: 1px solid $color_accent
+		background-color: $text_color
+	input,
+	textarea
+		color: $text_color
+		background-color: rgba(0, 0, 0, 0.3)
+		border: 1px solid $text_color
+		+kerning(2)
+	button
+		color: $bg_light
+		background-color: $bg_bottom
+		border: 1px solid $bg_light
+		+kerning(2)
+		&:hover
+			background-color: $bg_bottom_accent
+			border: 1px solid $color_accent
+			transition: all 0.6s
+
+.form-group
+	+kerning(2)
+	color: $bg_light
+
+.corusel_item
+	box-shadow: $color_accent 0 0 0 1px inset
+	background-color: $main_color
+	&:hover
+		box-shadow: $color_accent 0 0 0 2px inset
+		background-color: #3b3b3b
+	.car_img_wrap
+		.w_svg
+			background-color: $bg_bottom_accent
+	p
+		color: $bg_light
+	h3
+		color: $bg_light
+	a
+		color: $bg_light
+		background-color: $bg_bottom
+		border: 1px solid $bg_light
+		&:hover
+			background-color: $bg_bottom_accent
+			border: 1px solid $color_accent
+
+.item_vertical
+	&:hover
+		.rounded_img_wrap
+			border: 2px solid $color_accent
+		.vr_mobile
+			color: $color_accent
+	h3
+		color: $bg_light
+	.vr_mobile
+		color: $text_color
+	.rounded_img_wrap
+		border: 2px solid $bg_light
+

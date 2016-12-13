@@ -1,0 +1,409 @@
+@import "bourbon/bourbon"
+
+body
+	font-family: "Raleway", sans-serif
+	font-weight: normal
+	font-size: 14px
+	min-width: 320px
+	position: relative
+	line-height: 1.6
+	-webkit-font-smoothing: antialised
+
+body input:focus:required:invalid,
+body textarea:focus:required:invalid
+	color: red
+body input:required:valid,
+body textarea:required:valid
+	color: #ff7600
+
+.hidden
+	display: none
+
+section,
+.main_head
+	position: relative
+
+section
+	padding: 30px 0 50px
+	h2
+		margin: 0 0 5px
+		text-align: center
+		font-size: 2em
+		font-weight: 700
+
+.s_descr_wrap
+	text-align: center
+	.s_descr
+		display: inline-block
+		font-size: 1em
+		text-transform: uppercase
+		font-weight: 700
+		position: relative
+		margin-bottom: 30px
+		&::after
+			content: ""
+			width: 150px
+			width: 300px
+			height: 1px
+			position: absolute
+			left: 50%
+			margin-left: -150px
+			margin-top: 35px
+
+.main_head
+	min-height: 480px
+	padding-top: 30px
+
+.loader
+	background: none repeat scroll 0 0 #0a0a0a
+	bottom: 0
+	height: 100%
+	left: 0
+	position: fixed
+	right: 0
+	top: 0
+	width: 100%
+	z-index: 9999
+	.loader_inner
+		background-image: url("../img/flamme.gif")
+		background-size: cover
+		background-repeat: no-repeat
+		background-position: center center
+		height: 100%
+		width: 100%
+		margin-top: 0
+		margin-left: 0
+		left: 0
+		top: 0
+		position: absolute
+
+.logo_container
+	float: left
+	img
+		height: 150px
+		width: 150px
+		z-index: 1
+		position: relative
+		margin-left: 10px
+
+.toggle_menu
+	width: 60px
+	height: 60px
+	position: fixed
+	z-index: 100
+	border: none
+	right: 30px
+	top: 30px
+	span
+		display: block
+	&:hover
+		transition: all 1s
+
+$w: 28px
+$h: 3px
+
+.sandwich
+	width: $w
+	height: $w
+	position: absolute
+	top: 8px
+	bottom: 0
+	left: 0
+	right: 0
+	margin: auto
+	z-index: 200
+
+.sw-topper
+	position: relative
+	top: 0
+	width: $w
+	height: $h
+	border: none
+	border-radius: 4px 4px 4px 4px
+	transition: transform 0.5s, top 0.2s
+	display: block
+
+.sw-bottom
+	position: relative
+	width: $w
+	height: $h
+	top: $h * 2.2
+	border: none
+	border-radius: 4px 4px 4px 4px
+	transition: transform 0.5s, top 0.2s
+	transition-delay: 0.2s, 0s
+.sw-footer
+	position: relative
+	width: $w
+	height: $h
+	top: $h * 4.5
+	border: none
+	border-radius: 4px 4px 4px 4px
+	transition: all 0.5s
+	transition-delay: 0.1s
+.sandwich.active
+	.sw-topper
+		top: 9px
+		transform: rotate(-45deg)
+	.sw-bottom
+		top: 6px
+		transform: rotate(45deg)
+	.sw-footer
+		opacity: 0
+		top: 0
+		transform: rotate(180deg)
+
+.top_menu
+	position: fixed
+	width: 100%
+	height: 100%
+	z-index: 50
+	right: 0
+	top: 0
+	display: none
+	ul,
+	li
+		list-style-type: none
+		padding: 0
+		margin: 0
+	ul
+		margin-top: 200px
+		text-align: center
+		li
+			&:nth-child(1) a
+				+animation-duration(1s)
+			&:nth-child(2) a
+				+animation-duration(1.5s)
+			&:nth-child(3) a
+				+animation-duration(2s)
+			&:nth-child(4) a
+				+animation-duration(2.5s)
+			&:nth-child(5) a
+				+animation-duration(3s)
+		a
+			display: block
+			margin: 0
+			padding: 10px 0px
+			text-transform: uppercase
+			font-size: 18px
+			font-weight: 600
+			+transition(all 0.6s ease)
+.top_wrapper
+	display: table
+	width: 100%
+	height: 100%
+	position: absolute
+	top: 0
+	left: 0
+	z-index: 10
+	.top_descr
+		display: table-row
+		.top_centered
+			display: table-cell
+			text-align: center
+			vertical-align: bottom
+	.top_text
+		display: inline-block
+		+transition(all 1s ease)
+		p
+			font-size: 1em
+			text-transform: uppercase
+			font-weight: 600
+			margin: 1px 5px 10px 5px
+			padding: 4px
+			+animation-delay(.4s)
+		h1
+			display: inline-block
+			font-size: 2em
+			margin: 10px 5px 1px 5px
+			padding: 4px 40px
+			font-weight: 500
+			+animation-delay(.3s)
+
+.main_footer
+	padding: 25px 0 20px
+	font-size: 1em
+	font-weight: 500
+	.social_wrap
+		float: right
+		ul
+			margin: 0
+		li
+			display: inline-block
+			font-size: 20px
+			padding: 0 3px
+
+.s_portfolio
+	ul,
+	li
+		list-style-type: none
+		padding: 0
+		margin: 0
+		text-align: center
+	li
+		display: inline-block
+		margin: 0 6px
+		font-size: 1em
+		font-weight: 700
+		cursor: pointer
+		line-height: 2
+	ul
+		margin-bottom: 35px
+
+.portfolio_item
+	display: none
+	padding: 0
+	margin: 0px
+	img
+		width: 100%
+	.port_item_container
+		position: absolute
+		top: 0
+		left: 0
+		width: 100%
+		height: 100%
+		text-align: center
+		padding-top: 10%
+		opacity: 0
+		transition: all .8s
+	&:hover .port_item_container
+		opacity: 1
+		padding-top: 15%
+	h3
+		display: inline-block
+		padding: 0
+		margin-bottom: 5%
+		text-transform: uppercase
+		+animation-delay(.4s)
+	a
+		margin-top: 5%
+		padding: 5px 40px
+		display: inline-block
+		text-transform: uppercase
+		&:hover
+			transition: all .6s
+
+.port_deskr
+	max-width: 800px
+	margin: auto
+	p,
+	h3
+		padding: 10px
+	h3
+		display: inline-block
+		margin-top: 30px
+		font-weight: 500
+		text-align: center
+		text-transform: uppercase
+		font-weight: 500px
+	p
+		margin-top: 0
+	img
+		display: inline-block
+		width: 80%
+		padding-top: 5px
+		margin: auto
+
+.col-md-6
+	padding: 1%
+	margin-top: 2%
+	margin-bottom: 1%
+
+.car_img
+	ul
+		margin: 0
+
+.animation_r
+	+animation-delay(.4s)
+
+.main_form
+	button
+		margin-top: 20px
+		padding: 5px 60px
+		display: inline-block
+		text-transform: uppercase
+
+.form-group
+	display: block
+	margin-bottom: 30px
+	.color_element
+		font-weight: 700
+		font-size: 18px
+	.text-danger
+		font-size: 11px
+		margin-top: 5px
+		display: block
+	input,
+	textarea
+		display: block
+		width: 100%
+		margin-top: 5px
+		line-height: 40px
+		text-indent: 12px
+
+.img_w_100
+	width: 100%
+.img_w_30
+	width: 60%
+
+.corusel_item
+	margin-top: 10px
+	margin-bottom: 0px
+	max-width: 260px
+	text-align: center
+	&:hover
+		transition: all .6s
+	.car_img_wrap
+		position: relative
+		.w_svg
+			width: 100%
+			position: absolute
+			left: 0
+			top: 25px
+			padding: 10px 5px 10px 5px
+	h3
+		text-transform: uppercase
+	a
+		font-size: 1em
+		font-weight: 700
+		margin-top: 20px
+		margin-bottom: 40px
+		padding: 5px 40px
+		display: inline-block
+		text-transform: uppercase
+		&:hover
+			transition: all .6s
+
+.item_vertical
+	text-align: center
+	margin-top: 70px
+	&:hover
+		.rounded_img_wrap
+			transform: scale(1.2)
+
+	h3
+		margin-top: 40px
+		text-transform: uppercase
+		font-weight: 500px
+		margin-bottom: 10px
+		transition: all .8s
+	p
+		margin-top: 0
+		font-weight: 300px
+.vr_mobile
+	margin-bottom: 35px
+	transition: all .8s
+
+.rounded_img_wrap
+	border-radius: 10em
+	overflow: hidden
+	width: 180px
+	height: 180px
+	text-align: center
+	margin: auto
+	transition: all .6s
+	+animation-delay(.4s)
+	img
+		max-width: 100%
+
+
