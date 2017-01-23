@@ -74,8 +74,8 @@ $(document).ready(function() {
 	var $containerMs = $(".masonry-container");
 		$containerMs.imagesLoaded(function () {
 		$containerMs.masonry({
-			columnWidth: ".item",
-			itemSelector: ".item"
+			columnWidth: ".portfolio-item",
+			itemSelector: ".portfolio-item"
 		});
 	});
 
@@ -90,4 +90,13 @@ $(document).ready(function() {
 		removalDelay: 300,
 		mainClass: 'my-mfp-slide-bottom'
 	});
+		$(".popup-content").magnificPopup({
+		type: "inline",
+		midClick: true
+	});
+	$(".portfolio-item").each(function (i) {
+		$(this).find("a").attr("href", "#work_" + i);
+		$(this).find(".podrt-descr").attr("id", "work_" + i);
+	});
+
 });
