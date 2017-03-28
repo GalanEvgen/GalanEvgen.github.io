@@ -2,6 +2,86 @@
 @import "vars"
 @import "libs"
 
-//Custom styles here
+.top-line
+	padding-top: -20px
+	margin-left: 5px
+	height: 100px
+	position: absolute
+	width: 100%
+	z-index: 1
+.logo
+	img
+		width: 160px
+		height: auto
+.phone
+	position: absolute
+	right: 70px
+	top: 20px
+	font-family: "leelawad"
+	color: #e6e6e6
+	font-size: 22px
+	white-space: nowrap
+	.fa
+		color: #000000
+		font-size: 24px
+.hamburger
+	position: absolute
+	right: 5px
+	top: 10px
+	.hamburger-box
+		width: 34px
+.hamburger-inner, .hamburger-inner::after, .hamburger-inner::before
+	background-color: #d0d0d0
+	width: 34px
+	border-radius: 1px
+	height: 2px
+.mm-navbar
+	position: relative
+	height: auto
+	.mm-title
+		margin: 0
+		padding: 0
+		img
+			width: 160px
+			height: auto
+html.mm-opened
+	overflow-y: scroll
+.mm-panels>.mm-panel:after, .mm-panels>.mm-panel:before
+	height: 0
+.mm-panels>.mm-panel>.mm-listview:first-child, .mm-panels>.mm-panel>.mm-navbar+.mm-listview
+	margin-top: 0
+.mm-panels>.mm-panel.mm-hasnavbar
+	padding-top: 0
+.mm-menu.mm-theme-dark .mm-listview>li.mm-selected>a:not(.mm-next), .mm-menu.mm-theme-dark .mm-listview>li.mm-selected>span
+	background-color: rgba(255, 255, 255, 0.1)
+
+.mm-listview
+	>	li
+		>	a
+			transition: color .3s ease
+			font-family: "leelawad"
+			padding: 15px 15%
+
+			&:hover
+				color: rgb(255, 175, 82)
+				&::before
+					transition: color .3s ease
+					color: rgb(255, 175, 82)
+			&::before
+				content: '\f005'
+				font-family: fontawesome
+				margin-right: 10px
+				color: #ffffff
+		&.active
+			&>a
+				color: #b22f2f
+
+.h1, h2, h3
+	line-height: 1.4
+	text-transform: uppercase
+
+.header-text
+	text-align: center
+	color: #fff
 
 @import "media"
