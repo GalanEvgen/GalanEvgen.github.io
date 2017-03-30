@@ -1,6 +1,47 @@
 @import "bourbon"
+@import "base"
 @import "vars"
 @import "libs"
+
+.button
+	display: inline-block
+	border: none
+	color: #fff
+	text-decoration: none
+	background-color: $accent
+	padding: 13px 50px
+	font-size: 12px
+	text-transform: uppercase
+	font-weight: 600
+	letter-spacing: 3px
+	border-radius: 2px
+	text-align: center
+	position: relative
+	outline: none
+	transition: background-color .1s ease
+	&::after
+  	transition: background-color .2s ease
+  	position: absolute
+  	content: ''
+  	height: 4px
+  	bottom: 0
+  	width: 100%
+  	background-color: darken($accent, 50%)
+  	opacity: .18
+  	border-bottom-left-radius: 2px
+  	border-bottom-right-radius: 2px
+  	left: 0
+	&:focus, &:hover
+  	text-decoration: none
+  	color: #fff
+	&:hover
+  	background-color: lighten($accent, 5%)
+  	&::after
+    	opacity: .22
+	&:active
+  	background-color: darken($accent, 5%)
+  	&::after
+    	opacity: .32
 
 .top-line
 	padding-top: -20px
@@ -9,21 +50,24 @@
 	position: absolute
 	width: 100%
 	z-index: 1
+
 .logo
 	img
 		width: 160px
 		height: auto
+
 .phone
 	position: absolute
-	right: 70px
+	right: 80px
 	top: 20px
-	font-family: "leelawad"
+	font-family: "CenturyGothic"
 	color: #e6e6e6
 	font-size: 22px
 	white-space: nowrap
 	.fa
 		color: #000000
 		font-size: 24px
+
 .hamburger
 	position: absolute
 	right: 5px
@@ -54,12 +98,12 @@ html.mm-opened
 	padding-top: 0
 .mm-menu.mm-theme-dark .mm-listview>li.mm-selected>a:not(.mm-next), .mm-menu.mm-theme-dark .mm-listview>li.mm-selected>span
 	background-color: rgba(255, 255, 255, 0.1)
-
+	color: rgb(255, 175, 82)
 .mm-listview
 	>	li
 		>	a
 			transition: color .3s ease
-			font-family: "leelawad"
+			font-family: "CenturyGothic"
 			padding: 15px 15%
 
 			&:hover
@@ -72,16 +116,105 @@ html.mm-opened
 				font-family: fontawesome
 				margin-right: 10px
 				color: #ffffff
-		&.active
-			&>a
-				color: #b22f2f
 
 .h1, h2, h3
 	line-height: 1.4
 	text-transform: uppercase
 
+.header-flex
+	display: flex
+	height: 100%
+	position: relative
+	top: 0
+.centered-flex
+	margin: auto
 .header-text
+	position: relative
 	text-align: center
 	color: #fff
+	p
+		margin-top: 30px
+	.button
+		margin-top: 25px
+.welcome
+	p
+		font-size: 14px
+		text-transform: uppercase
+		display: flex
+		align-items: center
+		white-space: nowrap
+		margin: -20px 0
+		&::before, &::after
+			content: ''
+			height: 1px
+			width: 100%
+			background-color: #fff
+			display: inline-block
+		span
+			margin: 10px
+			//width: 100%
+			
+	h1
+		margin: 0 0 10px 0
+		font-weight: 100
+		font-size: 60px
+		line-height: 1.6
+		border-bottom: 1px solid #fff
+		white-space: nowrap
+	strong
+		display: inline-block
+		font-size: 16px
+		//font-weight: 100
+		
+	.fa
+		font-size: 16px
+		margin: 0 10px
+
+.header-social-group
+	position: absolute
+	display: flex
+	right: 0
+	top: 0
+	height: 100%
+	border-left: 1px solid rgba(255, 255, 255, 0.36)
+	background-color: rgba(0, 0, 0, 0.2)
+	padding: 0 12px
+.social
+	margin: auto
+	ul, li
+		margin: 0
+		padding: 0
+		list-style-type: none
+	a
+		display: block
+		color: #1f1f1f
+		font-size: 17px
+		background-color: rgba(255, 255, 255, 0.4)
+		height: 40px
+		width: 40px
+		text-align: center
+		margin: 20px 0
+		line-height: 40px
+		border-radius: 10em
+		transition: background-color 0.3s ease
+		&:hover
+			background-color: rgba(255, 255, 255, 0.6)
+	
+.header-contacts
+	position: absolute
+	width: 100%
+	bottom: 0
+	left: 0
+	border-top: 1px solid rgba(255, 255, 255, 0.36)
+	color: #fff
+	background-color: rgba(0, 0, 0, 0.2)
+	padding: 20px
+	text-align: center
+	.fa
+		margin-right: 10px
+		color: rgba(255, 255, 255, 0.4)
+		font-size: 18px
+	
+	
 
 @import "media"
