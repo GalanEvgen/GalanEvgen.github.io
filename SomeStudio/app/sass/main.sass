@@ -102,15 +102,17 @@ html.mm-opened
 .mm-listview
 	>	li
 		>	a
-			transition: color .3s ease
+			transition: all .3s ease
 			font-family: "CenturyGothic"
 			padding: 15px 15%
 
 			&:hover
 				color: rgb(255, 175, 82)
+				letter-spacing: 1px
 				&::before
 					transition: color .3s ease
 					color: rgb(255, 175, 82)
+					//letter-spacing: 3px
 			&::before
 				content: '\f005'
 				font-family: fontawesome
@@ -214,7 +216,14 @@ html.mm-opened
 		margin-right: 10px
 		color: rgba(255, 255, 255, 0.4)
 		font-size: 18px
-	
-	
 
+.s-carousel-service
+	color: #fff
+	text-align: center
+
+$colors: #ff5d5d, #61ceff, #ffa346
+@for $i from 1 through length($colors)
+	.carousel-service .owl-item:nth-child(#{length($colors)}n+#{$i})
+		background-color: nth($colors, $i)
+	
 @import "media"

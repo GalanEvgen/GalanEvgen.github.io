@@ -17,4 +17,25 @@ var api = $('#my-menu').data('mmenu');
 					$('.hamburger').removeClass('is-active');
 		});
 	
+$('.carousel-service').owlCarousel({
+	loop: true,
+	nav: true,
+	smartSpeed: 700,
+	responsiveClass: true,
+		responsive: {
+			0: {
+				items: 1
+			},
+			800: {
+				items: 2
+			},
+			1100: {
+				items: 3
+			}
+		},
+	
+	
+	navText: ['<i class="fa fa-clock-o"></i>', '<i class="fa fa-clock-o"></i>']
+});
+	
 });

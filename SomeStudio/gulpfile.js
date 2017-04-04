@@ -54,6 +54,7 @@ gulp.task('libs', function() {
 	return gulp.src([
 		'app/libs/jquery/dist/jquery.min.js',
 		'app/libs/mmenu/dist/js/jquery.mmenu.all.min.js',
+		'app/libs/OwlCarousel/owl.carousel.min.js',
 		// 'app/libs/magnific-popup/magnific-popup.min.js'
 		])
 		.pipe(concat('libs.min.js'))
