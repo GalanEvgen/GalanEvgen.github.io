@@ -14,16 +14,16 @@
 	text-transform: uppercase
 	font-weight: 600
 	letter-spacing: 3px
-	border-radius: 2px
+	border-radius: 1px
 	text-align: center
 	position: relative
 	outline: none
-	transition: background-color .1s ease
+	transition: background-color .3s ease
 	&::after
   	transition: background-color .2s ease
   	position: absolute
   	content: ''
-  	height: 4px
+  	height: 3px
   	bottom: 0
   	width: 100%
   	background-color: darken($accent, 50%)
@@ -42,7 +42,14 @@
   	background-color: darken($accent, 5%)
   	&::after
     	opacity: .32
-
+	&.button-white
+		background-color: rgba(255, 255, 255, 0.8)
+		color: $dark
+		//font-weight: 800
+		text-transform: none
+		&:hover
+			background-color: rgba(255, 255, 255, 1)
+	
 .top-line
 	padding-top: -20px
 	margin-left: 5px
@@ -119,7 +126,7 @@ html.mm-opened
 				margin-right: 10px
 				color: #ffffff
 
-.h1, h2, h3
+.h1, h2
 	line-height: 1.4
 	text-transform: uppercase
 
@@ -221,9 +228,73 @@ html.mm-opened
 	color: #fff
 	text-align: center
 
-$colors: #ff5d5d, #61ceff, #ffa346
+$colors: #ff5d5d, #61ceff, rgb(255, 175, 82)
 @for $i from 1 through length($colors)
 	.carousel-service .owl-item:nth-child(#{length($colors)}n+#{$i})
 		background-color: nth($colors, $i)
-	
+
+.carousel-service
+	background-color: $dark
+	.item-carousel-service
+		color: #fff
+		font-size: 18px
+		font-weight: 300
+		position: relative
+		display: flex
+		flex-direction: column-reverse
+		//text-align: center
+		&:hover
+			.carousel-service-image
+				opacity: 1
+	.owl-item
+		&:nth-child(2n+2)
+			.item-carousel-service
+				flex-direction: column
+
+	.carousel-service-image
+		background-color: #000000
+		background-size: cover
+		background-position: center
+		opacity: .85
+		transition: opacity .4s ease
+
+	.carousel-service-content
+		display: flex
+		position: relative
+		padding: 40px 10% 50px
+		//text-align: center
+		.carousel-service-composition
+			width: 100%
+			text-align: center
+			margin: auto
+			h3
+				padding: 0
+				margin: 0
+				font-size: 20px
+				font-weight: 100
+			h2
+				font-weight: 300
+				font-size: 26px
+				margin-top: 5px
+				margin-bottom: 0
+		.carousel-service-list
+			padding: 0
+			margin: 15px 0 25px 0
+			list-style-type: none
+			li
+				padding: 10px
+				border-bottom: 1px solid rgba(0, 0, 0, 0.15)
+				&:last-child
+					border-bottom: none
+				strong
+					color: $dark
+					font-weight: 800
+					font-size: 16px
+					.fa
+						font-size: 14px
+
+.owl-cerousel
+	owl-item
+		backface-visibility: inherit 
+
 @import "media"
