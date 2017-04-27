@@ -114,7 +114,7 @@ html.mm-opened
 			padding: 15px 15%
 
 			&:hover
-				color: rgb(255, 175, 82)
+				color: #fff
 				letter-spacing: 1px
 				&::before
 					transition: color .3s ease
@@ -261,7 +261,7 @@ $colors: #ff5d5d, #61ceff, rgb(255, 175, 82)
 	.carousel-service-content
 		display: flex
 		position: relative
-		padding: 40px 10% 50px
+		padding: 20px 10%
 		//text-align: center
 		.carousel-service-composition
 			width: 100%
@@ -293,8 +293,91 @@ $colors: #ff5d5d, #61ceff, rgb(255, 175, 82)
 					.fa
 						font-size: 14px
 
+.owl-nav
+	position: absolute
+	top: 0
+	width: 100%
+	>div
+		width: 65px
+		height: 65px
+		color: $dark
+		background-color: rgba(255, 255, 255, 0.9)
+		position: absolute
+		text-align: center
+		line-height: 63px
+		font-size: 34px
+		transition: background-color .3s ease
+		&:hover
+			background-color: rgba(255, 255, 255, 1)
+		&.owl-prev
+			left: 0
+		&.owl-next
+			right: 0
+
 .owl-cerousel
 	owl-item
 		backface-visibility: inherit 
+
+.s-galery
+	padding: 5% 0
+	.galery
+		font-weight: 300
+		font-size: 26px
+		text-transform: none
+		margin-bottom: 0
+	.progalery
+		padding: 0
+		margin: 0
+		color: $accent
+		margin-left: 200px
+		font-size: 20px
+		font-weight: 300
+	p
+		margin: 30px 0
+.section-overley
+	&::before
+		content: ''
+		position: absolute
+		top: 0
+		left: 0
+		width: 100%
+		height: 100%
+		background-color: #2e2e2e
+		opacity: .9
+
+.fotorama
+	background-color: $dark
+	padding: 0
+	&__nav
+		&-wrap
+			position: absolute
+			bottom: 0
+			padding: 0 7px
+			width: 100%
+	&__thumb
+		border: 2px #fff solid
+		transition: border-color .5s ease
+		&-border
+			border-color: $accent
+	&__arr-
+		&-next, &-prev
+			text-align: center
+			&::before
+				font-family: fontawesome
+				font-size: 30px
+		&-next
+			&::before
+				content: '\f105'
+		&-prev
+			&::before
+				content: '\f104'
+.formhead
+	h3
+		padding: 0
+		margin: 0
+		color: $dark
+		margin-left: 20px
+		font-size: 20px
+		font-weight: 300
 
 @import "media"
