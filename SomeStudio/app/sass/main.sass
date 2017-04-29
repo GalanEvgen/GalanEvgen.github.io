@@ -371,13 +371,71 @@ $colors: #ff5d5d, #61ceff, rgb(255, 175, 82)
 		&-prev
 			&::before
 				content: '\f104'
+
+.s-collback
+	background-size: contain
+	background-repeat: no-repeat
+	background-position: 0 0
+	background-color: $accent
+	
+	&::before
+		content: ''
+		width: 50%
+		right: 0
+		height: 100%
+		position: absolute
+		background-color: $accent
+		//opacity: .8
+	.collback
+		padding: 15% 0 15% 15%
+		position: relative
+		color: #fff
+		button
+			margin-top: 30px
+	.collback-send
+		display: none
+		position: absolute
+		top: 0
+		left: 0
+		right: 0
+		bottom: 0
+		text-transform: uppercase
+		font-weight: 600
+		z-index: 10
+		span
+			margin: auto
+		& ~ *
+			transition: all .5s ease
+		&.active
+			& ~ *
+				opacity: .5
+				filter: blur(10px)
 .formhead
+	//margin-left: 20px
 	h3
 		padding: 0
 		margin: 0
 		color: $dark
-		margin-left: 20px
+		//margin-left: 20px
 		font-size: 20px
 		font-weight: 300
+	h4
+		//text-transform: uppercase
+		font-size: 26px
+		font-weight: 300
+		margin: 0
+	p
+		margin-top: 5px
+
+input, textarea, select
+	background-color: transparent
+	border: #fff 1px solid
+	border-radius: 2px
+	padding: 5px 20px
+	outline: none
+	display: inline-block
+	//font-size: 16px
+	margin-top: 15px
+	width: 100%
 
 @import "media"

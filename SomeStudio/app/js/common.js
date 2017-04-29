@@ -51,6 +51,11 @@ $(function () {
 		});
 	}carouselServise();
 	
+	$('select').selectize({
+		create: true,
+		
+	});
+	
 	$('.carousel-service-composition .h2').each(function() {
 		var ths = $(this);
 		ths.html(ths.html().replace(/(\S+)\s*$/, '<span>$1</span>'));
@@ -60,6 +65,21 @@ $(function () {
 		ths.html(ths.html().replace(/^(\S+)/, '<span>$1</span>'));
 	});
 	
+	$("form.collback").submit(function() {
+		var th = $(this);
+		$.ajax({
+			type: "POST",
+			url: "mail.php",
+			data: th.serialize()
+		}).done(function() {
+			$(th).find('.collback-send').addClass('active').css('display','flex').hide().fadeIn();
+			setTimeout(function() {
+				$(th).find('.collback-send').removeClass('active').fadeOut();
+				th.trigger("reset");
+			},2000);
+		});
+		return false;
+	});
 	
 	function onResize() {
 		$('.carousel-service-content').equalHeights();

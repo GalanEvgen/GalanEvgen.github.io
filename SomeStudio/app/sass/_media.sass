@@ -11,12 +11,20 @@
 
 /* Medium Devices, Desktops */
 @media only screen and (max-width : 992px)
-	/**/
+	.s-collback
+		.collback
+			padding: 10% 0 10% 10%
 
 
 /* Small Devices, Tablets */
 @media only screen and (max-width : 768px)
-	/**/
+	.s-collback
+		background-size: cover
+		&::before
+			width: 100%
+			opacity: .8
+		.collback
+			padding: 15% 5%
 
 
 /* Extra Small Devices, Phones */

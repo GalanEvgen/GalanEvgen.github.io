@@ -56,6 +56,7 @@ gulp.task('libs', function() {
 		'app/libs/mmenu/dist/js/jquery.mmenu.all.min.js',
 		'app/libs/equalheights/js/equalheights.js',
 		'app/libs/OwlCarousel/owl.carousel.min.js',
+		'app/libs/selectize/js/standalone/selectize.min.js'
 		//'app/libs/fotorama/fotorama.js'
 		// 'app/libs/magnific-popup/magnific-popup.min.js'
 		])
