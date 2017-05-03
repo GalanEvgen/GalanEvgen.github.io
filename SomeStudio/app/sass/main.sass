@@ -318,7 +318,7 @@ $colors: #ff5d5d, #61ceff, rgb(255, 175, 82)
 	owl-item
 		backface-visibility: inherit 
 
-.s-galery
+.s-galery, .s-partners, .s-review
 	padding: 5% 0
 	.galery
 		font-weight: 300
@@ -334,6 +334,12 @@ $colors: #ff5d5d, #61ceff, rgb(255, 175, 82)
 		font-weight: 300
 	p
 		margin: 30px 0
+
+.s-partners.section-overley
+	&::before
+		background-color: #fff
+		opacity: .7
+
 .section-overley
 	&::before
 		content: ''
@@ -427,7 +433,9 @@ $colors: #ff5d5d, #61ceff, rgb(255, 175, 82)
 	p
 		margin-top: 5px
 
-input, textarea, select
+input, textarea, select,
+.selectize-control .selectize-input,
+.selectize-control.single, .selectize-input .input-active
 	background-color: transparent
 	border: #fff 1px solid
 	border-radius: 2px
@@ -437,5 +445,137 @@ input, textarea, select
 	//font-size: 16px
 	margin-top: 15px
 	width: 100%
+
+.selectize-control.single
+	border: none
+	padding: 0
+	color: #fff
+	.selectize-input, &.dropdown-active
+		&::after
+			border: none
+			content: '\f107'
+			font-family: fontawesome
+			position: absolute
+			right: 25px
+			top: 10px
+		&.dropdown-active::after
+			content: '\f106'
+			color: #000
+.selectize-dropdown
+	border: none
+	border-radius: 0
+	text-align: left
+	&-content
+		.option
+			padding: 10px 20px
+			&.active
+				background-color: rgba(255, 163, 70, 0.8)
+	
+.selectize-input.items
+	padding: 6px 20px
+	margin: 0
+	color: #ffffff
+
+.text-center
+		text-align: center
+	
+.s-review
+	h3
+		font-size: 26px
+		font-weight: 300
+		text-transform: uppercase
+		color: $accent
+		span
+			color: #fff
+.reviews
+	text-align: center
+	.owl-dots
+		width: 100%
+		text-align: center
+		display: inline-block
+		.owl-dot
+			width: 6px
+			height: 6px
+			background-color: #fff
+			border-radius: 10em
+			display: inline-block
+			margin: 4px
+			transition: background-color .5s ease, transform .5s ease
+			&.active
+				background-color: $accent
+				transform: scale(1.5)
+.review
+	margin-top: 10px
+	&-head
+		font-size: 20px
+		font-weight: 100
+	&-date
+		margin-top: 3px
+		color: #6f6f6f
+	&-stars
+		margin-top: 10px
+		margin-bottom: 30px
+		i
+			color: #ffa346
+			margin: 3px
+.quots
+	position: absolute
+	width: 100%
+	&::before, &::after
+		position: absolute
+		font-size: 40px
+		font-weight: 300
+		//font-family: fontawesome
+		color: $accent
+		display: block
+		top: 85px
+	&::before	
+		content: ",,"
+		left: -60px
+	&::after
+		content: ",,"
+		right: -40px
+		//text-align: right
+
+.s-partners
+	padding-bottom: 0
+	h3
+		margin: 0
+		font-size: 26px
+		font-weight: 600
+		text-transform: uppercase
+		color: $accent
+	.partners
+		.partner
+			height: 100%
+			display: flex
+			margin: auto
+		.owl-stage
+			display: flex
+		.owl-item
+			//margin-top: 30px
+			img
+				max-width: 80%
+				width: auto
+				display: inline-block
+				margin: auto
+		.owl-nav
+			position: absolute
+			top: 0
+			width: 100%
+			z-index: 2
+			>div
+				background-color: transparent
+				position: absolute
+				top: 120px
+				transition: color .5s ease, transform .5s ease
+				&:hover
+					//color: $accent
+					transform: scale(1.2)
+				&.owl-prev
+					left: -70px
+				&.owl-next
+					right: -70px
+
 
 @import "media"

@@ -56,11 +56,39 @@ $(function () {
 		
 	});
 	
-	$('.carousel-service-composition .h2').each(function() {
-		var ths = $(this);
-		ths.html(ths.html().replace(/(\S+)\s*$/, '<span>$1</span>'));
+	$('.reviews').owlCarousel({
+		loop: true,
+		items: 1,
+		smartSpeed: 700,
+		nav: false
 	});
-	$('.s-galery .h2').each(function() {
+		$('.partners').owlCarousel({
+		loop: true,
+		smartSpeed: 700,
+		dots: false,
+		nav: true,
+		navText: ['<i class="fa fa-angle-double-left"></i>', '<i class="fa fa-angle-double-right"></i>'],
+		responsiveClass: true,
+		responsive: {
+			0: {
+				items: 1
+			},
+			768: {
+				items: 2
+			},
+			992: {
+				items: 4
+			}
+		},
+	});
+	
+	
+	//$('.s-review h3').each(function() {
+	//	var ths = $(this);
+	//	ths.html(ths.html().replace(/(\S+)\s*$/, '<span>$1</span>'));
+	//});
+	
+	$('.s-review h3').each(function() {
 		var ths = $(this);
 		ths.html(ths.html().replace(/^(\S+)/, '<span>$1</span>'));
 	});
