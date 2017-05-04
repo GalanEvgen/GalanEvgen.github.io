@@ -318,7 +318,7 @@ $colors: #ff5d5d, #61ceff, rgb(255, 175, 82)
 	owl-item
 		backface-visibility: inherit 
 
-.s-galery, .s-partners, .s-review
+.s-galery, .s-partners, .s-review, .main-footer
 	padding: 5% 0
 	.galery
 		font-weight: 300
@@ -577,5 +577,27 @@ input, textarea, select,
 				&.owl-next
 					right: -70px
 
+footer
+	background-color: $dark
+	color: #fff
+	.main-footer
+		&-colum
+			//text-align: center
+			margin: 15px 0
+		&-logo
+			width: 120px
+			height: auto
+		&-social
+			margin-top: 20px
+			li
+				display: inline-block
+				margin: 3px
+				a
+					margin-bottom: 0
+		p
+			position: relative
+			font-size: 15px
+			padding: 0
+			margin: 5px 0
 
 @import "media"
