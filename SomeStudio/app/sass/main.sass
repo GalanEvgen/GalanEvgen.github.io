@@ -1,7 +1,54 @@
-@import "bourbon"
-@import "base"
 @import "vars"
 @import "libs"
+
+
+
+
+*::-webkit-input-placeholder
+	color: #ffffff
+	opacity: 1
+
+*:-moz-placeholder
+	color: #ffffff
+	opacity: 1
+
+*::-moz-placeholder
+	color: #ffffff
+	opacity: 1
+
+*:-ms-input-placeholder
+	color: #ffffff
+	opacity: 1
+
+body input:focus:required:invalid,
+body textarea:focus:required:invalid
+	color: #ffffff
+body input:required:valid,
+body textarea:required:valid
+	color: #ffffff
+
+body
+	font-size: 16px
+	min-width: 320px
+	position: relative
+	line-height: 1.7
+	font-family: "CenturyGothic"
+	overflow-x: hidden
+	color: #fff
+	&.ishome
+		.site-header
+			min-height: 300px
+			height: 100vh
+			background-color: $dark
+
+section, header
+	position: relative
+	background-size: cover
+	background-position: center
+	font-family: "CenturyGothic"
+	background-color: #3b3b3b
+	&.inverse
+		color: #fff
 
 .button
 	display: inline-block
@@ -584,11 +631,14 @@ footer
 		&-colum
 			//text-align: center
 			//margin: 15px 0
+			h4
+				padding: 0
+				margin: 0	
 		&-logo
-			width: 120px
+			width: 200px
 			height: auto
 		&-social
-			//margin-top: 20px
+			margin-top: 20px
 			li
 				display: inline-block
 				margin: 3px
