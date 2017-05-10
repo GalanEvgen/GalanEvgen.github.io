@@ -8,106 +8,89 @@ var gulp           = require('gulp'),
 		rename         = require('gulp-rename'),
 		del            = require('del'),
 		imagemin       = require('gulp-imagemin'),
-		pngquant       = require('imagemin-pngquant'),
 		cache          = require('gulp-cache'),
 		autoprefixer   = require('gulp-autoprefixer'),
-		fileinclude    = require('gulp-file-include'),
-		gulpRemoveHtml = require('gulp-remove-html'),
-		bourbon        = require('node-bourbon'),
 		ftp            = require('vinyl-ftp'),
 		notify         = require("gulp-notify");
+
+// Скрипты проекта
+
+gulp.task('common-js', function() {
+	return gulp.src([
+		'app/js/common.js',
+		])
+	.pipe(concat('common.min.js'))
+	.pipe(uglify())
+	.pipe(gulp.dest('app/js'));
+});
+
+gulp.task('js', ['common-js'], function() {
+	return gulp.src([
+		'app/libs/jquery/dist/jquery.min.js',
+		'app/libs/mmenu/dist/js/jquery.mmenu.all.min.js',
+		'app/libs/equalheights/js/equalheights.js',
+		'app/libs/OwlCarousel/owl.carousel.min.js',
+		'app/libs/selectize/js/standalone/selectize.min.js',
+		'app/libs/fotorama/fotorama.js',
+		'app/js/common.min.js', // Всегда в конце
+		])
+	.pipe(concat('scripts.min.js'))
+	// .pipe(uglify()) // Минимизировать весь js (на выбор)
+	.pipe(gulp.dest('app/js'))
+	.pipe(browserSync.reload({stream: true}));
+});
 
 gulp.task('browser-sync', function() {
 	browserSync({
 		server: {
 			baseDir: 'app'
 		},
-		notify: false
+		notify: false,
+		// tunnel: true,
+		// tunnel: "projectmane", //Demonstration page: http://projectmane.localtunnel.me
 	});
 });
 
-gulp.task('sass', ['headersass'], function() {
+gulp.task('sass', function() {
 	return gulp.src('app/sass/**/*.sass')
-		.pipe(sass({
-			includePaths: bourbon.includePaths
-		}).on("error", notify.onError()))
-		.pipe(rename({suffix: '.min', prefix : ''}))
-		.pipe(autoprefixer(['last 15 versions']))
-		.pipe(cleanCSS())
-		.pipe(gulp.dest('app/css'))
-		.pipe(browserSync.reload({stream: true}))
+	.pipe(sass({outputStyle: 'expand'}).on("error", notify.onError()))
+	.pipe(rename({suffix: '.min', prefix : ''}))
+	.pipe(autoprefixer(['last 15 versions']))
+	.pipe(cleanCSS()) // Опционально, закомментировать при отладке
+	.pipe(gulp.dest('app/css'))
+	.pipe(browserSync.reload({stream: true}));
 });
 
-gulp.task('headersass', function() {
-	return gulp.src('app/header.sass')
-		.pipe(sass({
-			includePaths: bourbon.includePaths
-		}).on("error", notify.onError()))
-		.pipe(rename({suffix: '.min', prefix : ''}))
-		.pipe(autoprefixer(['last 15 versions']))
-		.pipe(cleanCSS())
-		.pipe(gulp.dest('app'))
-		.pipe(browserSync.reload({stream: true}))
-});
-
-gulp.task('libs', function() {
-	return gulp.src([
-		'app/libs/jquery/dist/jquery.min.js',
-		'app/libs/mmenu/dist/js/jquery.mmenu.all.min.js',
-		'app/libs/equalheights/js/equalheights.js',
-		'app/libs/OwlCarousel/owl.carousel.min.js',
-		'app/libs/selectize/js/standalone/selectize.min.js'
-		//'app/libs/fotorama/fotorama.js'
-		// 'app/libs/magnific-popup/magnific-popup.min.js'
-		])
-		.pipe(concat('libs.min.js'))
-		.pipe(uglify())
-		.pipe(gulp.dest('app/js'));
-});
-
-gulp.task('watch', ['sass', 'libs', 'browser-sync'], function() {
-	gulp.watch('app/header.sass', ['headersass']);
+gulp.task('watch', ['sass', 'js', 'browser-sync'], function() {
 	gulp.watch('app/sass/**/*.sass', ['sass']);
+	gulp.watch(['libs/**/*.js', 'app/js/common.js'], ['js']);
 	gulp.watch('app/*.html', browserSync.reload);
-	gulp.watch('app/js/**/*.js', browserSync.reload);
 });
 
 gulp.task('imagemin', function() {
 	return gulp.src('app/img/**/*')
-		.pipe(cache(imagemin({
-			interlaced: true,
-			progressive: true,
-			svgoPlugins: [{removeViewBox: false}],
-			use: [pngquant()]
-		})))
-		.pipe(gulp.dest('dist/img')); 
+	.pipe(cache(imagemin()))
+	.pipe(gulp.dest('dist/img')); 
 });
 
-gulp.task('buildhtml', function() {
-  gulp.src(['app/*.html'])
-    .pipe(fileinclude({
-      prefix: '@@'
-    }))
-    .pipe(gulpRemoveHtml())
-    .pipe(gulp.dest('dist/'));
-});
-
-gulp.task('removedist', function() { return del.sync('dist'); });
-
-gulp.task('build', ['removedist', 'buildhtml', 'imagemin', 'sass', 'libs'], function() {
-
-	var buildCss = gulp.src([
-		'app/css/fonts.min.css',
-		'app/css/main.min.css'
-		]).pipe(gulp.dest('dist/css'));
+gulp.task('build', ['removedist', 'imagemin', 'sass', 'js'], function() {
 
 	var buildFiles = gulp.src([
-		'app/.htaccess'
-	]).pipe(gulp.dest('dist'));
+		'app/*.html',
+		'app/.htaccess',
+		]).pipe(gulp.dest('dist'));
 
-	var buildFonts = gulp.src('app/fonts/**/*').pipe(gulp.dest('dist/fonts'));
+	var buildCss = gulp.src([
+		'app/css/main.min.css',
+		]).pipe(gulp.dest('dist/css'));
 
-	var buildJs = gulp.src('app/js/**/*').pipe(gulp.dest('dist/js'));
+	var buildJs = gulp.src([
+		'app/js/scripts.min.js',
+		]).pipe(gulp.dest('dist/js'));
+
+	var buildFonts = gulp.src([
+		'app/fonts/**/*',
+		]).pipe(gulp.dest('dist/fonts'));
 
 });
 
@@ -130,6 +113,7 @@ gulp.task('deploy', function() {
 
 });
 
+gulp.task('removedist', function() { return del.sync('dist'); });
 gulp.task('clearcache', function () { return cache.clearAll(); });
 
 gulp.task('default', ['watch']);
