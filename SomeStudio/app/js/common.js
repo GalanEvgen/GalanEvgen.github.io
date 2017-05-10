@@ -81,12 +81,7 @@ $(function () {
 			}
 		},
 	});
-	
-	
-	//$('.s-review h3').each(function() {
-	//	var ths = $(this);
-	//	ths.html(ths.html().replace(/(\S+)\s*$/, '<span>$1</span>'));
-	//});
+
 	
 	$('.s-review h3').each(function() {
 		var ths = $(this);

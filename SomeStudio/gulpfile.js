@@ -31,11 +31,11 @@ gulp.task('js', ['common-js'], function() {
 		'app/libs/equalheights/js/equalheights.js',
 		'app/libs/OwlCarousel/owl.carousel.min.js',
 		'app/libs/selectize/js/standalone/selectize.min.js',
-		'app/libs/fotorama/fotorama.js',
-		'app/js/common.min.js', // Всегда в конце
+		//'app/libs/fotorama/fotorama.js',
+		'app/js/common.min.js',
 		])
 	.pipe(concat('scripts.min.js'))
-	// .pipe(uglify()) // Минимизировать весь js (на выбор)
+	//.pipe(uglify()) // Минимизировать весь js (на выбор)
 	.pipe(gulp.dest('app/js'))
 	.pipe(browserSync.reload({stream: true}));
 });
