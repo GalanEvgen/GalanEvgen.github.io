@@ -1,22 +1,52 @@
-@import "vars"
 
 /*==========  Desktop First  ==========*/
 
-/* Large Devices, Wide Screens */
 @media only screen and (max-width : 1200px)
-	/**/
-
+	.header-contacts
+		font-size: 13px
+	.main-footer-colum
+		text-align: center
 
 
 /* Medium Devices, Desktops */
 @media only screen and (max-width : 992px)
+	.logo
+		img
+			width: 120px
+	.mm-navbar
+		.mm-title
+			img
+				width: 120px
 	.s-collback
 		.collback
 			padding: 10% 0 10% 10%
-
+	.header-text
+		p
+			margin-top: 20px
+			font-size: 13px
+		.welcome
+			h1
+				font-size: 46px
+	.main-footer-colum
+		text-align: center
 
 /* Small Devices, Tablets */
 @media only screen and (max-width : 768px)
+	.logo
+		img
+			width: 100px
+	.mm-navbar
+		.mm-title
+			img
+				width: 100px
+	.welcome
+		display: inline-block
+		p
+			span
+				font-size: 12px
+	.header-contacts
+		padding: 10px
+		text-align: left
 	.s-collback
 		background-size: cover
 		&::before
@@ -31,13 +61,28 @@
 			.owl-nav
 				>div
 					&.owl-prev
-						left: 0
+						left: -60px
 					&.owl-next
-						right: 0
+						right: -60px
 /* Extra Small Devices, Phones */
 @media only screen and (max-width : 480px)
-	/**/
-
+	.header-text
+		.welcome
+			h1
+				font-size: 30px
+	.welcome
+		display: inline-block
+		p
+			span
+				font-size: 12px
+	.s-partners
+		.partners
+			.owl-nav
+				>div
+					&.owl-prev
+						left: -30px
+					&.owl-next
+						right: -30px
 
 /* Custom, iPhone Retina */
 @media only screen and (max-width : 320px)

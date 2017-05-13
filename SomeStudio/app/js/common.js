@@ -81,11 +81,21 @@ $(function () {
 			}
 		},
 	});
-
 	
 	$('.s-review h3').each(function() {
 		var ths = $(this);
 		ths.html(ths.html().replace(/^(\S+)/, '<span>$1</span>'));
+	});
+	
+	$(window).scroll(function() {
+		if ($(this).scrollTop() > $(this).height()) {
+			$('.top').addClass('active');
+		} else {
+			$('.top').removeClass('active');
+		}
+	});
+	$('.top').click(function() {
+		$('html, body').stop().animate({scrollTop: 0}, 'slow', 'swing');
 	});
 	
 	$("form.collback").submit(function() {
@@ -109,4 +119,7 @@ $(function () {
 	}onResize();
 	window.onresize = function() {onResize()};
 
+});
+$(window).on('load', function() {
+	$('.preloader').delay(1000).fadeOut('slow');
 });
